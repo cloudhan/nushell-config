@@ -3,7 +3,7 @@
 # - module which can be used with `use starship.nu`
 # - script which can be used with `source starship.nu`
 export-env {
-    let starship_path = (if $env.OS == "Windows_NT" { "C:/Program Files/starship/bin/starship.exe" } else { "starship" })
+    let starship_path = (if $env.OS? == "Windows_NT" { "C:/Program Files/starship/bin/starship.exe" } else { "starship" })
     load-env {
         STARSHIP_CONFIG: $"($nu.config-path | path dirname)/config-starship.toml"
         STARSHIP_SHELL: "nu"
